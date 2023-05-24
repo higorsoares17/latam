@@ -21,3 +21,13 @@ class TestCardRepository(TestCase):
         name = Card(name="Jose")
         self.card_repository.create(name)
         self.session.add.assert_called_once_with(name)
+
+
+    @patch("models.card_model.Card", autospec=True)
+    def test_delete(self, Card):
+        _id = Card(id=9)
+        self.card_repository.delete(_id)
+        self.session.delete.assert_called_once_with(_id)  
+        
+
+    
