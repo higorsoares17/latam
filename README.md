@@ -30,7 +30,7 @@ Logo em seguida  instalar e iniciar o Mysql, você pode baixar e instalar atrave
 
 Em seguida prencher o .env com os dados da conexão do MySql.
 
-Com os passos acima feitos basra  rodar a aplicação com o seguinte comando:
+Com os passos acima feitos basta  rodar a aplicação com o seguinte comando:
 
 ```sh
 uvicorn main:app
