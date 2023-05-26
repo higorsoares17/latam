@@ -12,8 +12,8 @@ from models.base_model import EntityMeta
 class Aplication(EntityMeta):
     __tablename__ = "aplication"
     id = Column(Integer, autoincrement=True)
-    score = Column(Float)
     due_date = Column(DateTime)
+    score = Column(Float)
     id_card =  Column(Integer, ForeignKey("cards.id"))
     PrimaryKeyConstraint(id)
 
@@ -22,4 +22,5 @@ class Aplication(EntityMeta):
             "id": self.id.__str__(),
             "score": self.score.__str__(),
             "due_date": self.due_date.__str__(),
+            "id_card" : self.id_card.__str__(),
         }

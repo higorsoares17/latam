@@ -1,11 +1,10 @@
 from fastapi import APIRouter, Depends, status
 from typing import List, Optional
-from schemas.aplication_schema import AplicationSchema
+from schemas.aplication_schema import AplicationSchema, AplicationSchemaUpdate
 from services.aplication_service import AplicationService
 
 
 AplicationRouter = APIRouter(prefix="/v1/aplication", tags=["Aplication"])
-
 
 
 @AplicationRouter.get("/", response_model=List[AplicationSchema])
@@ -20,18 +19,18 @@ def index(
             page_size, start_index
         )
     ]
-    
+
+
 @AplicationRouter.post(
     "/",
     response_model=AplicationSchema,
     status_code=status.HTTP_201_CREATED
 )
 def create(
-    aplication : AplicationSchema,
+    aplication: AplicationSchema,
     aplication_service: AplicationService = Depends(),
 ):
-    return aplication_service.create(aplication)
-
+    return aplication_service.create(aplication).normalize()
 
 
 @AplicationRouter.delete(
@@ -43,11 +42,11 @@ def delete(id: int, aplication_service: AplicationService = Depends()):
 
 @AplicationRouter.put(
     "/",
-    response_model=AplicationSchema,
+    response_model=AplicationSchemaUpdate,
     status_code=status.HTTP_202_ACCEPTED
 )
 def update(
-    aplication: AplicationSchema,
+    aplication: AplicationSchemaUpdate,
     aplication_service: AplicationService = Depends()
 ):
     return aplication_service.update(aplication)
