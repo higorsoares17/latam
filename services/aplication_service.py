@@ -1,8 +1,9 @@
 from models.aplication_model import Aplication
 from fastapi import Depends
 from typing import Optional, List
-from schemas.aplication_schema import AplicationSchema
+from schemas.aplication_schema import AplicationSchema,AplicationSchemaUpdate
 from repositories.aplication_repository import AplicationRepository
+
 
 
 class AplicationService:
@@ -27,8 +28,17 @@ class AplicationService:
             Aplication(aplication)
         )
     
-    def delete(self, id: int) -> None:
-        return self.column_repository.delete(Aplication(id=id))
+    def create(self, aplication: AplicationSchema) -> Aplication:
+        return self.aplication_repository.create(
+            Aplication(
+                id_card = aplication.id_card,
+                due_date = aplication.due_date,
+                score = aplication.score
+            )
+        )
     
-    def update(self, aplication: AplicationSchema) -> Aplication:
-        return self.column_repository.update(Aplication(id=aplication.id))
+    def delete(self, id: int) -> None:
+        return self.aplication_repository.delete(Aplication(id=id))
+    
+    def update(self, aplication: AplicationSchemaUpdate) -> Aplication:
+        return self.aplication_repository.update(Aplication(id=aplication.id))

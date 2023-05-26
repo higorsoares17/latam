@@ -3,12 +3,14 @@ from typing import Optional, List
 from datetime import datetime
 
 
-class AplicationSchemaDelete(BaseModel):
+class AplicationSchemaUpdate(BaseModel):
     id: int
+    score: float
+    due_date: datetime
+    id_card : int
 
 
 class AplicationSchema(BaseModel):
-    startup: Optional[List]
     score: float
     due_date: datetime
-    id_card = int
+    id_card : int
