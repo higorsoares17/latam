@@ -38,7 +38,7 @@ uvicorn main:app
 
 ## Documentação
 
-Toda documentação do projeto estra presente acessando "localhost/docs" ou "localhost/redocs".
+Toda documentação do projeto estra presente acessando "http://127.0.0.1:8000/docs" ou "http://127.0.0.1:8000/redocs".
 
 Lá você vai encontrar todas as rotas da aplicação e podera realizar todos testes do CRUD em cada Rota.
 
