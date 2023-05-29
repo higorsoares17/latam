@@ -13,9 +13,9 @@ A API foi criada com as seguintes tecnologias:
 
 ## Instalação
 
-Primeiro passo e baixar o repositorio no GitHub: https://github.com/higorsoares17/latam
+Repositorio no GitHub: https://github.com/higorsoares17/latam
 
-Em seguida criar um ambiente virtual
+Primeiro passo criar um ambiente virtual
 ```sh
 python -m venv "nome_do_ambiente"
 ```
